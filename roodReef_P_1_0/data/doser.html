@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dosing</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+<script>
+    function submitMessage() {
+      alert("Save value");
+      setTimeout(function(){ document.location.reload(false); }, 500);
+      window.location.reload();   
+    }
+</script>
+<style>
+    html {font-family: Arial; display: inline-block; text-align: center;}
+    h2 {font-size: 1.3rem;}
+    p {font-size: 1.0rem;}
+    body {max-width: 600px; margin:0px auto; padding-bottom: 25px;}
+    .slider { -webkit-appearance: none; margin: 14px; width: 120px; height: 25px; background: #8BB9DD;
+      outline: none; -webkit-transition: .2s; transition: opacity .2s;}
+    .slider::-webkit-slider-thumb {-webkit-appearance: none; appearance: none; width: 35px; height: 35px; background: #003249; cursor: pointer;}
+    .slider1::-moz-range-thumb { width: 35px; height: 35px; background: #003249; cursor: pointer; } 
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 150px;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h1 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h3 {
+  display: block;
+  font-size: 1.0em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<!-- Navigation -->
+<nav class="navbar-expand-md navbar-light bg-light sticy-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src ="/morish.jpg"><a/>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" >
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/chart">Chart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/doser">Dosing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/manual">Manual</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+<div class="row">
+  <div class="column" style="background-color:#8BB9DD;">
+    <h2>Blue Dosing Pump</h2>
+    <h3>Current Dosing Amount (ml)</h3>
+    <h1><span id="textSlider1">%SLIDER1%</span></h1>
+    <p><input type="range" onchange="updateSliderPWM1(this)" id="pwmSlider1" min="0" max="100" value = "0" value="%SLIDER1%" step="1" class="slider1"></p>
+    <p>Move slider to the desired ml dosing!</p>
+  </div>
+  <div class="column" style="background-color:#106B21;">
+    <h2>Green Dosing Pump</h2>
+    <h3>Current Dosing Amount (ml)</h3>
+    <h1><span id="textSlider2">%SLIDER2%</span></h1>
+    <p><input type="range" onchange="updateSliderPWM2(this)" id="pwmSlider2" min="0" max="100" value = "0" value="%SLIDER2%" step="1" class="slider2"></p>
+    <p>Move slider to the desired ml dosing!</p>
+  </div>
+  <div class="column" style="background-color:#FCE903;">
+    <h2>Yellow Dosing Pump</h2>
+    <h3>Current Dosing Amount (ml)</h3>
+    <h1><span id="textSlider3">%SLIDER3%</span></h1>
+    <p><input type="range" onchange="updateSliderPWM3(this)" id="pwmSlider3" min="0" max="100" value = "0" value="%SLIDER3%" step="1" class="slider3"></p>
+    <p>Move slider to the desired ml dosing!</p>
+  </div>
+  <div class="column" style="background-color:#BF40BF;">
+    <h2>Purple Dosing Pump</h2>
+    <h3>Current Dosing Amount (ml)</h3>
+    <h1><span id="textSlider3">%SLIDER3%</span></h1>
+    <p><input type="range" onchange="updateSliderPWM4(this)" id="pwmSlider4" min="0" max="100" value = "0" value="%SLIDER4%" step="1" class="slider4"></p>
+    <p>Move slider to the desired ml dosing!</p>
+  </div>
+</div>
+<div class="row">
+  <div class="column" style="background-color:#8BB9DD;">
+    <h2>Blue Pump</h2>
+    <h3>Calibrate pump 1</h3>
+    <label class="switch">
+      <input type="checkbox" id = "cb1">
+      <span class="slider round"></span>
+    </label>
+    <p>Click checkbox and when 100ml is reached click it again</p>
+  </div>
+  <div class="column" style="background-color:#106B21;">
+    <h2>Green Pump</h2>
+    <h3>Calibrate pump 2</h3>
+    <label class="switch">
+      <input type="checkbox" id = "cb2">
+      <span class="slider round"></span>
+    </label>
+    <p>Click checkbox and when 100ml is reached click it again</p>
+  </div>
+  <div class="column" style="background-color:#FCE903;">
+    <h2>Yellow Pump</h2>
+    <h3>Calibrate pump 3</h3>
+    <label class="switch">
+      <input type="checkbox" id = "cb3">
+      <span class="slider round"></span>
+    </label>
+    <p>Click checkbox and when 100ml is reached click it again</p>
+  </div>
+  <div class="column" style="background-color:#BF40BF;">
+    <h2>Purple Dosing Pump</h2>
+    <h3>Calibrate pump 4</h3>
+    <label class="switch">
+      <input type="checkbox" id = "cb4">
+      <span class="slider round"></span>
+    </label>
+    <p>Click checkbox and when 100ml is reached click it again</p>
+  </div>
+</div>
+<div class="row">
+  <div class="column" style="background-color:#8BB9DD;">
+    <label class="switch">
+      <h2>Blue Pump</h2>
+      <h3>Calibrate pump 1</h3>
+    </label>
+    <form action="/get" target="hidden-form" style="width: 130px; margin: auto">
+      <div class="input-group col-md-30">
+         <p style="color:black" style="font-size:60px">Blue Dose Frequency <font color="red">(current value <b>%bdnotfreq%</b>):<label for="bdnotfreq">:</label></font></p>
+      </div>
+        <div>
+          <select class="custom-select" id="bdnotfreq" name="bdnotfreq" style="font-size:12px;">
+           <option selected>Choose Dose Frequency..</option>
+           <option value ="1hour">Once an  Hour</option>
+           <option value ="2hour">Every 2 Hours</option>
+           <option value ="3hour">Every 3 Hours</option>
+           <option value ="4hour">Every 4 Hours</option>
+           <option value ="8hour">Every 8 Hours</option>
+           <option value ="twiceaday">Twice a Day</option>
+           <option value ="onceaday">Once a Day</option>
+           <option value="everyother">Every Other Day</option>
+           <option value="onceaweek">Once a Week</option>
+           <option value="onceamonth">Once a Month</option>
+           <option value="never">Never</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" id="bdnotfreqq" value = "Submit" onclick="submitMessage()">Save</button>
+          </div>
+        </div>
+    </form><br>
+  </div>
+    <div class="column" style="background-color:#106B21;">
+      <label class="switch">
+        <h2>Green Pump</h2>
+        <h3>Calibrate pump 2</h3>
+      </label>
+      <form action="/get" target="hidden-form" style="width: 130px; margin: auto">
+         <div class="input-group col-md-30">
+           <p style="color:black" style="font-size:60px">Green Dose Frequency <font color="red">(current value <b>%gdnotfreq%</b>):<label for="gdnotfreq">:</label></font></p>
+         </div>
+         <div>
+          <select class="custom-select" id="gdnotfreq" name="gdnotfreq" style="font-size:12px;">
+           <option selected>Choose Dose Frequency..</option>
+           <option value ="1hour">Once an  Hour</option>
+           <option value ="2hour">Every 2 Hours</option>
+           <option value ="3hour">Every 3 Hours</option>
+           <option value ="4hour">Every 4 Hours</option>
+           <option value ="8hour">Every 8 Hours</option>
+           <option value ="twiceaday">Twice a Day</option>
+           <option value ="onceaday">Once a Day</option>
+           <option value="everyother">Every Other Day</option>
+           <option value="onceaweek">Once a Week</option>
+           <option value="onceamonth">Once a Month</option>
+           <option value="never">Never</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit" id="gdnotfreqq" value = "Submit" onclick="submitMessage()">Save</button>
+          </div>
+        </div>
+      </form><br>
+    </div>
+    <div class="column" style="background-color:#FCE903;">
+       <label class="switch">
+         <h2>Yellow Pump</h2>
+         <h3>Calibrate pump 3</h3>
+        </label>
+        <form action="/get" target="hidden-form" style="width: 130px; margin: auto">
+                <div class="input-group col-md-30">
+                    <p style="color:black" style="font-size:60px">Yellow Dose Frequency <font color="red">(current value <b>%ydnotfreq%</b>):<label for="ydnotfreq">:</label></font></p>
+                </div>
+                <div>
+                     <select class="custom-select" id="ydnotfreq" name="ydnotfreq" style="font-size:12px;">
+                             	<option selected>Choose Dose Frequency..</option>
+           			<option value ="1hour">Once an  Hour</option>
+           			<option value ="2hour">Every 2 Hours</option>
+           			<option value ="3hour">Every 3 Hours</option>
+           			<option value ="4hour">Every 4 Hours</option>
+           			<option value ="8hour">Every 8 Hours</option>
+                             <option value ="twiceaday">Twice a Day</option>
+                             <option value ="onceaday">Once a Day</option>
+                             <option value="everyother">Every Other Day</option>
+                             <option value="onceaweek">Once a Week</option>
+                             <option value="onceamonth">Once a Month</option>
+                             <option value="never">Never</option>
+                      </select>
+                      <div class="input-group-append">
+                            <button class="btn btn-warning" type="submit" id="ydnotfreqq" value = "Submit" onclick="submitMessage()">Save</button>
+                      </div>
+                </div>
+        </form><br>
+    </div>
+    <div class="column" style="background-color:#BF40BF;">
+       <label class="switch">
+         <h2>Purple Pump</h2>
+         <h3>Calibrate pump 4</h3>
+        </label>
+        <form action="/get" target="hidden-form" style="width: 130px; margin: auto">
+                <div class="input-group col-md-30">
+                    <p style="color:black" style="font-size:60px">Purple Dose Frequency <font color="red">(current value <b>%pdnotfreq%</b>):<label for="pdnotfreq">:</label></font></p>
+                </div>
+                <div>
+                     <select class="custom-select" id="pdnotfreq" name="pdnotfreq" style="font-size:12px;">
+                             	<option selected>Choose Dose Freq..</option>
+           			<option value ="1hour">Once an  Hour</option>
+           			<option value ="2hour">Every 2 Hours</option>
+           			<option value ="3hour">Every 3 Hours</option>
+           			<option value ="4hour">Every 4 Hours</option>
+           			<option value ="8hour">Every 8 Hours</option>
+                             <option value ="twiceaday">Twice a Day</option>
+                             <option value ="onceaday">Once a Day</option>
+                             <option value="everyother">Every Other Day</option>
+                             <option value="onceaweek">Once a Week</option>
+                             <option value="onceamonth">Once a Month</option>
+                             <option value="never">Never</option>
+                      </select>
+                      <div class="input-group-append">
+                            <button class="btn btn-warning" type="submit"bu id="pdnotfreqq" value = "Submit" onclick="submitMessage()">Save</button>
+                      </div>
+                </div>
+        </form><br>
+    </div>
+</div>
+<iframe style="display:none" name="hidden-form" ></iframe>
+<script>
+var text1 = document.getElementById("textSlider1").value;
+document.getElementById("pwmSlider1").innerHTML = text1;
+function updateSliderPWM1(element) {
+  var slider1 = document.getElementById("pwmSlider1").value;
+  document.getElementById("textSlider1").innerHTML = slider1;
+  console.log(slider1);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/slider1?value1="+slider1, true);
+  xhr.send();
+}
+function updateSliderPWM2(element) {
+  var slider2 = document.getElementById("pwmSlider2").value;
+  document.getElementById("textSlider2").innerHTML = slider2;
+  console.log(slider2);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/slider2?value2="+slider2, true);
+  xhr.send();
+}
+function updateSliderPWM3(element) {
+  var slider3 = document.getElementById("pwmSlider3").value;
+  document.getElementById("textSlider3").innerHTML = slider3;
+  console.log(slider3);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/slider3?value3="+slider3, true);
+  xhr.send();
+}
+function updateSliderPWM4(element) {
+  var slider4 = document.getElementById("pwmSlider4").value;
+  document.getElementById("textSlider4").innerHTML = slider4;
+  console.log(slider4);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/slider4?value4="+slider4, true);
+  xhr.send();
+}
+var checked= document.getElementById('cb1');
+checked.onchange = function() {
+    console.log(checked);
+	cancelCheckBox1();
+}
+var checked= document.getElementById('cb2');
+checked.onchange = function() {
+    console.log(checked);
+	cancelCheckBox2();
+}
+var checked= document.getElementById('cb3');
+checked.onchange = function() {
+    console.log(checked);
+	cancelCheckBox3();
+}
+var checked= document.getElementById('cb4');
+checked.onchange = function() {
+    console.log(checked);
+	cancelCheckBox4();
+}
+function cancelCheckBox1() {	
+	if(document.getElementById("cb1").checked){
+	var r = confirm("DO YOU REALLY WANT TO CALIBRATE THIS PUMP!");
+	if (r == true) {
+	  cb1.checked=1;
+	} else {
+	  cb1.checked=0;
+	}
+}
+	var cb = cb1.checked;
+  	console.log(cb);
+  	var xhr = new XMLHttpRequest();
+  	xhr.open("GET", "/chbox1?value="+cb, true);
+  	xhr.send();
+}
+function cancelCheckBox2() {	//the checkbox in already changed
+	if(document.getElementById("cb2").checked){
+	var r = confirm("DO YOU REALLY WANT TO CALIBRATE THIS PUMP!");
+	if (r == true) {
+	  cb2.checked=1;
+	} else {
+	  cb2.checked=0;
+	}
+}
+	var cb = cb2.checked;
+  	console.log(cb);
+  	var xhr = new XMLHttpRequest();
+  	xhr.open("GET", "/chbox2?value="+cb, true);
+  	xhr.send();
+}
+
+function cancelCheckBox3() {	
+	if(document.getElementById("cb3").checked){
+	var r = confirm("DO YOU REALLY WANT TO CALIBRATE THIS PUMP!");
+	if (r == true) {
+	  cb3.checked=1;
+	} else {
+	  cb3.checked=0;
+	}
+}
+	var cb = cb3.checked;
+  	console.log(cb);
+  	var xhr = new XMLHttpRequest();
+  	xhr.open("GET", "/chbox3?value="+cb, true);
+  	xhr.send();
+}
+function cancelCheckBox4() {	
+	if(document.getElementById("cb4").checked){
+	var r = confirm("DO YOU REALLY WANT TO CALIBRATE THIS PUMP!");
+	if (r == true) {
+	  cb4.checked=1;
+	} else {
+	  cb.4checked=0;
+	}
+}
+	var cb = cb4.checked;
+  	console.log(cb);
+  	var xhr = new XMLHttpRequest();
+  	xhr.open("GET", "/chbox4?value="+cb, true);
+  	xhr.send();
+}
+    function validate(event) {
+      if (event.key == "-") {
+        event.preventDefault();
+        return false;
+      }
+    }    
+    function submitMessage() {
+      alert("Saved value");
+      setTimeout(function(){ document.location.reload(false); }, 500);
+      window.location.reload();   
+    }
+
+</script>
+</body>
+</html>

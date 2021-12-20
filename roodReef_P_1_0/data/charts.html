@@ -1,0 +1,2814 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <title>Charts</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<style>
+.highcharts-figure, .highcharts-data-table table {
+  min-width: 360px; 
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: 
+}
+.myform {
+    float:right;
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar-expand-md navbar-light bg-light sticy-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src ="/morish.jpg"><a/>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" >
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/chart">Chart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/doser">Dosing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/manual">Manual</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+<div class="row">
+<div class="dropdown">
+ <select id = "list1" class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <option selected>Select a Month Here</option>
+  <option value="1">January</option>
+  <option value="2">February</option>
+  <option value="3">March</option>
+  <option value="4">April</option>
+  <option value="5">May</option>
+  <option value="6">June</option>
+  <option value="7">July</option>
+  <option value="8">August</option>
+  <option value="9">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="12">December</option>
+  <option value="13">Year</option>
+ </select>
+</div>
+
+
+<div class="column" style="background-color: #669999;">
+<figure class="highcharts-figure">
+<div id="container">&nbsp;</div>
+<p class="highcharts-description">This chart shows the daily gallons of RO water topped off in your sump.  This is the Auto Top Off (ATO) feature.</p>
+</figure>
+</div>
+<div class="row"><form class="myform">
+<div class="dropdown">
+ <select id = "list2"  class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <option selected>Select a Month Here</option>
+  <option value="2_1">January</option>
+  <option value="2_2">February</option>
+  <option value="2_3">March</option>
+  <option value="2_4">April</option>
+  <option value="2_5">May</option>
+  <option value="2_6">June</option>
+  <option value="2_7">July</option>
+  <option value="2_8">August</option>
+  <option value="2_9">September</option>
+  <option value="2_10">October</option>
+  <option value="2_11">November</option>
+  <option value="2_12">December</option>
+  <option value="2_13">Year</option>
+ </select>
+</div>
+<div class="column" style="background-color: #669999;">
+<figure class="highcharts-figure">
+<div id="container2">&nbsp;</div>
+<p class="highcharts-description">This chart shows the daily gallons of new water put in your sump via water changes.  This is the Auto Water Change (AWC) feature.</p>
+</figure>
+</div>
+</div>
+<div class="row"><form class="myform">
+<div class="dropdown">
+ <select id = "list3"  class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <option selected>Select a Month Here</option>
+  <option value="3_1">January</option>
+  <option value="3_2">February</option>
+  <option value="3_3">March</option>
+  <option value="3_4">April</option>
+  <option value="3_5">May</option>
+  <option value="3_6">June</option>
+  <option value="3_7">July</option>
+  <option value="3_8">August</option>
+  <option value="3_9">September</option>
+  <option value="3_10">October</option>
+  <option value="3_11">November</option>
+  <option value="3_12">December</option>
+  <option value="3_13">Year</option>
+ </select>
+</div>
+<div class="column" style="background-color: #8bb9dd;">
+<figure class="highcharts-figure">
+<div id="container3">&nbsp;</div>
+<p class="highcharts-description">This is your Blue pump dosing.  It puts a set amount (mililiters) on a schedule you set.  You should calibrate the pump first.</p>
+</figure>
+</div>
+</div>
+<div class="row">
+<div class="dropdown">
+ <select id = "list4"  class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <option selected>Select a Month Here</option>
+  <option value="4_1">January</option>
+  <option value="4_2">February</option>
+  <option value="4_3">March</option>
+  <option value="4_4">April</option>
+  <option value="4_5">May</option>
+  <option value="4_6">June</option>
+  <option value="4_7">July</option>
+  <option value="4_8">August</option>
+  <option value="4_9">September</option>
+  <option value="4_10">October</option>
+  <option value="4_11">November</option>
+  <option value="4_12">December</option>
+  <option value="4_13">Year</option>
+ </select>
+</div>
+<div class="column" style="background-color: #00b300;">
+<figure class="highcharts-figure">
+<div id="container4">&nbsp;</div>
+<p class="highcharts-description">This is your Green pump dosing.  It puts a set amount (mililiters) on a schedule you set.  You should calibrate the pump first.</p>
+</figure>
+</div>
+</div>
+<div class="row">
+<div class="dropdown">
+ <select id = "list5"  class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <option selected>Select a Month Here</option>
+  <option value="5_1">January</option>
+  <option value="5_2">February</option>
+  <option value="5_3">March</option>
+  <option value="5_4">April</option>
+  <option value="5_5">May</option>
+  <option value="5_6">June</option>
+  <option value="5_7">July</option>
+  <option value="5_8">August</option>
+  <option value="5_9">September</option>
+  <option value="5_10">October</option>
+  <option value="5_11">November</option>
+  <option value="5_12">December</option>
+  <option value="5_13">Year</option>
+ </select>
+</div>
+<div class="column" style="background-color: #ffff00;">
+<figure class="highcharts-figure">
+<div id="container5">&nbsp;</div>
+<p class="highcharts-description">This is your Yellow pump dosing.  It puts a set amount (mililiters) on a schedule you set.  You should calibrate the pump first.</p>
+</figure>
+</div>
+</div>
+<div class="row">
+<div class="dropdown">
+ <select id = "list6"  class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <option selected>Select a Month Here</option>
+  <option value="6_1">January</option>
+  <option value="6_2">February</option>
+  <option value="6_3">March</option>
+  <option value="6_4">April</option>
+  <option value="6_5">May</option>
+  <option value="6_6">June</option>
+  <option value="6_7">July</option>
+  <option value="6_8">August</option>
+  <option value="6_9">September</option>
+  <option value="6_10">October</option>
+  <option value="6_11">November</option>
+  <option value="6_12">December</option>
+  <option value="6_13">Year</option>
+ </select>
+</div>
+<div class="column" style="background-color: #77773c;">
+<figure class="highcharts-figure">
+<div id="container6">&nbsp;</div>
+<p class="highcharts-description">This is the ATO, AWC, Blue dosing, Green dosing, and Yellow dosing all on one graph.</p>
+</figure>
+</div>
+</div>
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto;">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+<script type="text/javascript">
+var data1_1=[];
+var data1_2=[];
+var data1_3=[];
+var data1_4=[];
+var data1_5=[];
+var data1_6=[];
+var data1_7=[];
+var data1_8=[];
+var data1_9=[];
+var data1_10=[];
+var data1_11=[];
+var data1_12=[];
+var data2_1=[];
+var data2_2=[];
+var data2_3=[];
+var data2_4=[];
+var data2_5=[];
+var data2_6=[];
+var data2_7=[];
+var data2_8=[];
+var data2_9=[];
+var data2_10=[];
+var data2_11=[];
+var data2_12=[];
+var data3_1=[];
+var data3_2=[];
+var data3_3=[];
+var data3_4=[];
+var data3_5=[];
+var data3_6=[];
+var data3_7=[];
+var data3_8=[];
+var data3_9=[];
+var data3_10=[];
+var data3_11=[];
+var data3_12=[];
+var data4_1=[];
+var data4_2=[];
+var data4_3=[];
+var data4_4=[];
+var data4_5=[];
+var data4_6=[];
+var data4_7=[];
+var data4_8=[];
+var data4_9=[];
+var data4_10=[];
+var data4_11=[];
+var data4_12=[];
+var data5_1=[];
+var data5_2=[];
+var data5_3=[];
+var data5_4=[];
+var data5_5=[];
+var data5_6=[];
+var data5_7=[];
+var data5_8=[];
+var data5_9=[];
+var data5_10=[];
+var data5_11=[];
+var data5_12=[];
+var data6_1=[];
+var data6_2=[];
+var data6_3=[];
+var data6_4=[];
+var data6_5=[];
+var data6_6=[];
+var data6_7=[];
+var data6_8=[];
+var data6_9=[];
+var data6_10=[];
+var data6_11=[];
+var data6_12=[];
+var opt1 = 1;
+/*myobj = {"months": [{"month":1,"year":2020,"days":[0.0,44.0,40.0,62.0,15.0,7.0,77.0,79.0,64.0,12.0,71.0,10.0,47.0,29.0,28.0,12.0,32.0,59.0,18.0,7.0,72.0,78.0,65.0,58.0,64.0,79.0,29.0,27.0,56.0,56.0,55.0]},{"month":2,"year":2020,"days":[0.0,33.0,45.0,32.0,27.0,36.0,36.0,53.0,72.0,1.0,27.0,16.0,13.0,69.0,31.0,15.0,49.0,43.0,18.0,2.0,31.0,35.0,44.0,27.0,40.0,70.0,44.0,6.00]},{"month":3,"year":2020,"days":[0.0,45.0,5.0,36.0,65.0,29.0,20.0,36.0,54.0,7.0,10.0,59.0,24.0,42.0,13.0,9.0,50.0,41.0,64.0,3.0,22.0,70.0,59.0,42.0,40.0,70.0,23.0,71.0,70.0,13.0,55.0]},{"month":4,"year":2020,"days":[0.0,58.0,10.0,59.0,38.0,41.0,1.0,75.0,16.0,67.0,69.0,51.0,74.0,54.0,58.0,20.0,67.0,35.0,13.0,5.0,21.0,51.0,58.0,63.0,5.0,10.0,11.0,35.0,54.0,27.0]},{"month":5,"year":2020,"days":[0.0,74.0,8.0,9.0,47.0,48.0,53.0,5.0,13.0,28.0,55.0,48.0,21.0,52.0,45.0,4.0,51.0,46.0,17.0,73.0,44.0,69.0,15.0,2.0,9.0,12.0,53.0,14.0,4.0,44.0,15.0]},{"month":6,"year":2020,"days":[0.0,19.0,45.0,22.0,42.0,53.0,68.0,54.0,2.0,32.0,7.0,41.0,46.0,64.0,24.0,33.0,6.0,2.0,51.0,7.0,54.0,71.0,13.0,7.0,29.0,55.0,71.0,7.0,77.0,41.0]},{"month":7,"year":2020,"days":[0.0,51.0,37.0,29.0,58.0,79.0,69.0,19.0,34.0,38.0,52.0,43.0,69.0,70.0,41.0,50.0,20.0,54.0,65.0,35.0,45.0,38.0,16.0,32.0,45.0,62.0,67.0,55.0,69.0,66.0,15.0]},{"month":8,"year":2020,"days":[0.0,23.0,20.0,19.0,67.0,35.0,9.0,13.0,67.0,67.0,6.0,1.0,12.0,6.0,42.0,2.0,5.0,36.0,65.0,65.0,7.0,18.0,62.0,37.0,34.0,65.0,76.0,26.0,37.0,35.0,68.0]},{"month":9,"year":2020,"days":[0.0,63.0,67.0,39.0,22.0,45.0,61.0,76.0,42.0,55.0,15.0,6.0,31.0,3.0,56.0,31.0,55.0,9.0,29.0,38.0,19.0,48.0,35.0,32.0,48.0,48.0,58.0,72.0,76.0,31.0]},{"month":10,"year":2020,"days":[0.0,71.0,30.0,15.0,10.0,48.0,73.0,44.0,60.0,11.0,38.0,63.0,15.0,51.0,12.0,2.0,24.0,45.0,68.0,67.0,77.0,11.0,36.0,68.0,4.0,36.0,10.0,34.0,75.0,36.0,28.0]},{"month":11,"year":2020,"days":[0.0,20.0,47.0,39.0,18.0,72.0,19.0,1.0,2.0,75.0,39.0,13.0,21.0,46.0,74.0,13.0,17.0,26.0,4.0,53.0,50.0,77.0,26.0,42.0,39.0,23.0,65.0,5.0,44.0,3.0]},{"month":12,"year":2020,"days":[0.0,75.0,11.0,26.0,69.0,20.0,52.0,6.0,1.0,24.0,26.0,76.0,27.0,7.0,21.0,40.0,5.0,25.0,60.0,58.0,4.0,74.0,37.0,44.0,64.0,43.0,69.0,74.0,60.0,35.0,15.0]}]}
+*/
+var myobj;
+
+function getAtoRows(myobj){
+	for(x=0;x<myobj.months.length;x++){
+		for(i=0;i<myobj.months[x].days.length;i++){
+		              if(x == 0){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_1.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 1){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_2.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 2){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_3.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 3){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_4.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 4){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_5.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 5){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_6.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 6){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_7.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 7){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_8.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 8){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_9.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 9){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_10.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 10){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_11.push([temp.getTime(),myobj.months[x].days[i]]);
+			}else if(x == 11){
+				var temp = new Date(myobj.months[x].year, myobj.months[x].month-1, i+1);
+				data1_12.push([temp.getTime(),myobj.months[x].days[i]]);
+			}
+		}
+	}
+}
+
+$(function() {
+  
+  $.getJSON('/jsonAto', function(myobj) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+getAtoRows(myobj);
+console.log("jsonAto is ");
+console.log(myobj);
+
+    // The select action
+    $("#list1").on('change', function(){
+	$.getJSON('/jsonAto', function(myobj){
+	getAtoRows(myobj);
+        var selVal = $("#list1").val();
+        if(selVal == "1" || selVal == '') {
+            chart1.series[0].setData(data1_1);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "2") {
+            chart1.series[0].setData(data1_2);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '3') {
+            chart1.series[0].setData(data1_3);
+    		var series = chart1.series[0];
+    		series.color = '#000000';
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4') {
+            chart1.series[0].setData(data1_4);
+    		var series = chart1.series[0];
+    		series.color = '#000000';
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5') {
+            chart1.series[0].setData(data1_5);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6') {
+            chart1.series[0].setData(data1_6);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '7') {
+            chart1.series[0].setData(data1_7);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '8') {
+            chart1.series[0].setData(data1_8);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '9') {
+            chart1.series[0].setData(data1_9);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '10') {
+            chart1.series[0].setData(data1_10);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '11') {
+            chart1.series[0].setData(data1_11);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '12') {
+            chart1.series[0].setData(data1_12);
+    		var series = chart1.series[0];
+    		series.color = "#000000";
+    		series.graph.attr({ 
+		        stroke: '#000000'
+	    });
+   	 chart1.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#000000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '13') {
+		while (chart1.series.length) {
+		chart1.series[0].remove();
+		}
+		chart1.addSeries({
+	                name: 'Jan',
+	                id: 'jan',
+	                data: data1_1,	
+			color: '#060606'
+		});
+		chart1.addSeries({
+	                name: 'Feb',
+	                id: 'feb',
+	                data: data1_2,	
+			color: '#897345'
+		});
+		chart1.addSeries({
+	                name: 'Mar',
+	                id: 'mar',
+	                data: data1_3,	
+			color: '#8D2F2F'
+		});
+		chart1.addSeries({
+	                name: 'Apr',
+	                id: 'apr',
+	                data: data1_4,	
+			color: '#C71D1D'
+		});
+		chart1.addSeries({
+	                name: 'May',
+	                id: 'may',
+	                data: data1_5,	
+			color: '#C7A81D'
+		});
+		chart1.addSeries({
+	                name: 'Jun',
+	                id: 'jun',
+	                data: data1_6,	
+			color: '#BFC71D'
+		});
+		chart1.addSeries({
+	                name: 'Jul',
+	                id: 'jul',
+	                data: data1_7,	
+			color: '#25DC1D'
+		});
+		chart1.addSeries({
+	                name: 'Aug',
+	                id: 'aug',
+	                data: data1_8,	
+			color: '#0C8052'
+		});
+		chart1.addSeries({
+	                name: 'Sep',
+	                id: 'sep',
+	                data: data1_9,	
+			color: '#1C6FC2'
+		});
+		chart1.addSeries({
+	                name: 'Oct',
+	                id: 'oct',
+	                data: data1_10,	
+			color: '#7F61AF'
+		});
+		chart1.addSeries({
+	                name: 'Nov',
+	                id: 'nov',
+	                data: data1_11,	
+			color: '#D617DF'
+		});
+		chart1.addSeries({
+	                name: 'Dec',
+	                id: 'dec',
+	                data: data1_12,	
+			color: '#D51A86'
+		});
+        }
+	});
+    });
+
+
+chart1 = new Highcharts.chart({
+        chart: {
+            renderTo: 'container'
+        },
+  title: {
+    text: 'Auto Top Off (ATO) Gallons/Per Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Gallons'
+    }
+  },
+
+      xAxis: {
+        type: 'datetime',
+      },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'ATO',
+    data: [0,0,0,0,0,0,0,0,0,0,0],
+        color: '#000000'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+});
+});
+
+        // Build AWC Chart 2
+function getAwcRows(myobj2){
+	for(x=0;x<myobj2.months.length;x++){
+		for(i=0;i<myobj2.months[x].days.length;i++){
+		              if(x == 0){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_1.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 1){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_2.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 2){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_3.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 3){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_4.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 4){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_5.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 5){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_6.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 6){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_7.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 7){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_8.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 8){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_9.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 9){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_10.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 10){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_11.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}else if(x == 11){
+				var temp = new Date(myobj2.months[x].year, myobj2.months[x].month-1, i+1);
+				data2_12.push([temp.getTime(),myobj2.months[x].days[i]]);
+			}
+		}
+	}
+}
+
+$(function() {
+  
+  $.getJSON('/jsonAwc', function(myobj2) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+getAwcRows(myobj2);
+
+
+    // The select action
+    $("#list2").on('change', function(){
+	$.getJSON('/jsonAwc', function(myobj2){
+	getAwcRows(myobj2);
+        var selVal = $("#list2").val();
+        if(selVal == "2_1" || selVal == '') {
+            chart2.series[0].setData(data2_1);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "2_2") {
+            chart2.series[0].setData(data2_2);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '2_3') {
+            chart2.series[0].setData(data2_3);
+    		var series = chart2.series[0];
+    		series.color = '#ff0000';
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_4') {
+            chart2.series[0].setData(data2_4);
+    		var series = chart2.series[0];
+    		series.color = '#ff0000';
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_5') {
+            chart2.series[0].setData(data2_5);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_6') {
+            chart2.series[0].setData(data2_6);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_7') {
+            chart2.series[0].setData(data2_7);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '2_8') {
+            chart2.series[0].setData(data2_8);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_9') {
+            chart2.series[0].setData(data2_9);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_10') {
+            chart2.series[0].setData(data2_10);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_11') {
+            chart2.series[0].setData(data2_11);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '2_12') {
+            chart2.series[0].setData(data2_12);
+    		var series = chart2.series[0];
+    		series.color = "#ff0000";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart2.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '13') {
+		while (chart2.series.length) {
+		chart2.series[0].remove();
+		}
+		chart2.addSeries({
+	                name: 'Jan',
+	                id: 'jan',
+	                data: data2_1,	
+			color: '#060606'
+		});
+		chart2.addSeries({
+	                name: 'Feb',
+	                id: 'feb',
+	                data: data2_2,	
+			color: '#897345'
+		});
+		chart2.addSeries({
+	                name: 'Mar',
+	                id: 'mar',
+	                data: data2_3,	
+			color: '#8D2F2F'
+		});
+		chart2.addSeries({
+	                name: 'Apr',
+	                id: 'apr',
+	                data: data2_4,	
+			color: '#C71D1D'
+		});
+		chart2.addSeries({
+	                name: 'May',
+	                id: 'may',
+	                data: data2_5,	
+			color: '#C7A81D'
+		});
+		chart2.addSeries({
+	                name: 'Jun',
+	                id: 'jun',
+	                data: data2_6,	
+			color: '#BFC71D'
+		});
+		chart2.addSeries({
+	                name: 'Jul',
+	                id: 'jul',
+	                data: data2_7,	
+			color: '#25DC1D'
+		});
+		chart2.addSeries({
+	                name: 'Aug',
+	                id: 'aug',
+	                data: data2_8,	
+			color: '#0C8052'
+		});
+		chart2.addSeries({
+	                name: 'Sep',
+	                id: 'sep',
+	                data: data2_9,	
+			color: '#1C6FC2'
+		});
+		chart2.addSeries({
+	                name: 'Oct',
+	                id: 'oct',
+	                data: data2_10,	
+			color: '#7F61AF'
+		});
+		chart2.addSeries({
+	                name: 'Nov',
+	                id: 'nov',
+	                data: data2_11,	
+			color: '#D617DF'
+		});
+		chart2.addSeries({
+	                name: 'Dec',
+	                id: 'dec',
+	                data: data2_12,	
+			color: '#D51A86'
+		});
+        }
+	});
+    });
+
+
+chart2 = new Highcharts.chart({
+        chart: {
+            renderTo: 'container2'
+        },
+  title: {
+    text: 'Auto Water Change (AWC) Gallons/Per Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Gallons'
+    }
+  },
+
+      xAxis: {
+        type: 'datetime',
+      },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'AWC',
+    data: [0,0,0,0,0,0,0,0,0,0,0],
+        color: '#ff0000'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+});
+});
+        // Build Chart 3 Blue
+
+function getBlueRows(myobj3){
+	for(x=0;x<myobj3.months.length;x++){
+		for(i=0;i<myobj3.months[x].days.length;i++){
+		              if(x == 0){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_1.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 1){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_2.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 2){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_3.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 3){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_4.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 4){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_5.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 5){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_6.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 6){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_7.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 7){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_8.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 8){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_9.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 9){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_10.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 10){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_11.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}else if(x == 11){
+				var temp = new Date(myobj3.months[x].year, myobj3.months[x].month-1, i+1);
+				data3_12.push([temp.getTime(),myobj3.months[x].days[i]]);
+			}
+		}
+	}
+}
+
+$(function() {
+  
+  $.getJSON('/jsonBlue', function(myobj3) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+getBlueRows(myobj3);
+
+
+    // The select action
+    $("#list3").on('change', function(){
+	$.getJSON('/jsonBlue', function(myobj3){
+	getBlueRows(myobj3);
+        var selVal = $("#list3").val();
+
+        if(selVal == "3_1" || selVal == '') {
+            chart3.series[0].setData(data3_1);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "3_2") {
+            chart3.series[0].setData(data3_2);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#ff0000'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '3_3') {
+            chart3.series[0].setData(data3_3);
+    		var series = chart3.series[0];
+    		series.color = '#0000ff';
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_4') {
+            chart3.series[0].setData(data3_4);
+    		var series = chart3.series[0];
+    		series.color = '#0000ff';
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_5') {
+            chart3.series[0].setData(data3_5);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_6') {
+            chart3.series[0].setData(data3_6);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ff0000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_7') {
+            chart3.series[0].setData(data3_7);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '3_8') {
+            chart3.series[0].setData(data3_8);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_9') {
+            chart3.series[0].setData(data3_9);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_10') {
+            chart3.series[0].setData(data3_10);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_11') {
+            chart3.series[0].setData(data3_11);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '3_12') {
+            chart3.series[0].setData(data3_12);
+    		var series = chart3.series[0];
+    		series.color = "#0000ff";
+    		series.graph.attr({ 
+		        stroke: '#0000ff'
+	    });
+   	 chart3.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#0000ff'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '13') {
+		while (chart3.series.length) {
+		chart3.series[0].remove();
+		}
+		chart3.addSeries({
+	                name: 'Jan',
+	                id: 'jan',
+	                data: data3_1,	
+			color: '#060606'
+		});
+		chart3.addSeries({
+	                name: 'Feb',
+	                id: 'feb',
+	                data: data2_2,	
+			color: '#897345'
+		});
+		chart3.addSeries({
+	                name: 'Mar',
+	                id: 'mar',
+	                data: data3_3,	
+			color: '#8D2F2F'
+		});
+		chart3.addSeries({
+	                name: 'Apr',
+	                id: 'apr',
+	                data: data3_4,	
+			color: '#C71D1D'
+		});
+		chart3.addSeries({
+	                name: 'May',
+	                id: 'may',
+	                data: data3_5,	
+			color: '#C7A81D'
+		});
+		chart3.addSeries({
+	                name: 'Jun',
+	                id: 'jun',
+	                data: data3_6,	
+			color: '#BFC71D'
+		});
+		chart3.addSeries({
+	                name: 'Jul',
+	                id: 'jul',
+	                data: data3_7,	
+			color: '#25DC1D'
+		});
+		chart3.addSeries({
+	                name: 'Aug',
+	                id: 'aug',
+	                data: data3_8,	
+			color: '#0C8052'
+		});
+		chart3.addSeries({
+	                name: 'Sep',
+	                id: 'sep',
+	                data: data3_9,	
+			color: '#1C6FC2'
+		});
+		chart3.addSeries({
+	                name: 'Oct',
+	                id: 'oct',
+	                data: data3_10,	
+			color: '#7F61AF'
+		});
+		chart3.addSeries({
+	                name: 'Nov',
+	                id: 'nov',
+	                data: data3_11,	
+			color: '#D617DF'
+		});
+		chart3.addSeries({
+	                name: 'Dec',
+	                id: 'dec',
+	                data: data3_12,	
+			color: '#D51A86'
+		});
+        }
+	});
+    });
+
+
+chart3 = new Highcharts.chart({
+        chart: {
+            renderTo: 'container3'
+        },
+  title: {
+    text: 'Blue Dosing Pump Milliters/Per Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Milliliters'
+    }
+  },
+
+      xAxis: {
+        type: 'datetime',
+      },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'Blue Doser',
+    data: [0,0,0,0,0,0,0,0,0,0,0],
+        color: '#0000ff'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+});
+});
+
+
+        // Build Chart 4 Green
+
+function getGreenRows(myobj4){
+	for(x=0;x<myobj4.months.length;x++){
+		for(i=0;i<myobj4.months[x].days.length;i++){
+		              if(x == 0){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_1.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 1){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_2.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 2){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_3.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 3){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_4.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 4){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_5.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 5){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_6.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 6){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_7.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 7){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_8.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 8){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_9.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 9){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_10.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 10){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_11.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 11){
+				var temp = new Date(myobj4.months[x].year, myobj4.months[x].month-1, i+1);
+				data4_12.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}
+		}
+	}
+}
+
+$(function() {
+  
+  $.getJSON('/jsonGreen', function(myobj4) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+getGreenRows(myobj4);
+
+
+    // The select action
+    $("#list4").on('change', function(){
+	$.getJSON('/jsonGreen', function(myobj4){
+	getGreenRows(myobj4);
+        var selVal = $("#list4").val();
+
+        if(selVal == "4_1" || selVal == '') {
+            chart4.series[0].setData(data4_1);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "4_2") {
+            chart4.series[0].setData(data4_2);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '4_3') {
+            chart4.series[0].setData(data4_3);
+    		var series = chart4.series[0];
+    		series.color = '#008000';
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_4') {
+            chart4.series[0].setData(data4_4);
+    		var series = chart4.series[0];
+    		series.color = '#008000';
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_5') {
+            chart4.series[0].setData(data4_5);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_6') {
+            chart4.series[0].setData(data4_6);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_7') {
+            chart4.series[0].setData(data4_7);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '4_8') {
+            chart4.series[0].setData(data4_8);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_9') {
+            chart4.series[0].setData(data4_9);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_10') {
+            chart4.series[0].setData(data4_10);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_11') {
+            chart4.series[0].setData(data4_11);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '4_12'){
+            chart4.series[0].setData(data4_12);
+    		var series = chart4.series[0];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart4.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '13') {
+		while (chart4.series.length) {
+		chart4.series[0].remove();
+		}
+		chart4.addSeries({
+	                name: 'Jan',
+	                id: 'jan',
+	                data: data4_1,	
+			color: '#060606'
+		});
+		chart4.addSeries({
+	                name: 'Feb',
+	                id: 'feb',
+	                data: data4_2,	
+			color: '#897345'
+		});
+		chart4.addSeries({
+	                name: 'Mar',
+	                id: 'mar',
+	                data: data4_3,	
+			color: '#8D2F2F'
+		});
+		chart4.addSeries({
+	                name: 'Apr',
+	                id: 'apr',
+	                data: data4_4,	
+			color: '#C71D1D'
+		});
+		chart4.addSeries({
+	                name: 'May',
+	                id: 'may',
+	                data: data4_5,	
+			color: '#C7A81D'
+		});
+		chart4.addSeries({
+	                name: 'Jun',
+	                id: 'jun',
+	                data: data4_6,	
+			color: '#BFC71D'
+		});
+		chart4.addSeries({
+	                name: 'Jul',
+	                id: 'jul',
+	                data: data4_7,	
+			color: '#25DC1D'
+		});
+		chart4.addSeries({
+	                name: 'Aug',
+	                id: 'aug',
+	                data: data4_8,	
+			color: '#0C8052'
+		});
+		chart4.addSeries({
+	                name: 'Sep',
+	                id: 'sep',
+	                data: data4_9,	
+			color: '#1C6FC2'
+		});
+		chart4.addSeries({
+	                name: 'Oct',
+	                id: 'oct',
+	                data: data4_10,	
+			color: '#7F61AF'
+		});
+		chart4.addSeries({
+	                name: 'Nov',
+	                id: 'nov',
+	                data: data4_11,	
+			color: '#D617DF'
+		});
+		chart4.addSeries({
+	                name: 'Dec',
+	                id: 'dec',
+	                data: data4_12,	
+			color: '#D51A86'
+		});
+        }
+	});
+    });
+
+
+chart4 = new Highcharts.chart({
+        chart: {
+            renderTo: 'container4'
+        },
+  title: {
+    text: 'Green Dosing Pump Milliters/Per Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Milliliters'
+    }
+  },
+
+      xAxis: {
+        type: 'datetime',
+      },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'Green Doser',
+    data: [0,0,0,0,0,0,0,0,0,0,0],
+        color: '#008000'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+});
+});
+
+        // Build Chart 5 Yellow
+
+function getYellowRows(myobj5){
+	for(x=0;x<myobj5.months.length;x++){
+		for(i=0;i<myobj5.months[x].days.length;i++){
+		              if(x == 0){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_1.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 1){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_2.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 2){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_3.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 3){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_4.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 4){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_5.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 5){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_6.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 6){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_7.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 7){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_8.push([temp.getTime(),myobj4.months[x].days[i]]);
+			}else if(x == 8){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_9.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 9){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_10.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 10){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_11.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}else if(x == 11){
+				var temp = new Date(myobj5.months[x].year, myobj5.months[x].month-1, i+1);
+				data5_12.push([temp.getTime(),myobj5.months[x].days[i]]);
+			}
+		}
+	}
+}
+
+$(function() {
+  
+  $.getJSON('/jsonYellow', function(myobj5) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+getYellowRows(myobj5);
+
+
+    // The select action
+    $("#list5").on('change', function(){
+	$.getJSON('/jsonYellow', function(myobj5){
+	getYellowRows(myobj5);
+        var selVal = $("#list5").val();
+
+        if(selVal == "5_1" || selVal == '') {
+            chart5.series[0].setData(data5_1);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "5_2") {
+            chart5.series[0].setData(data5_2);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '5_3') {
+            chart5.series[0].setData(data5_3);
+    		var series = chart5.series[0];
+    		series.color = '#ffff00';
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_4') {
+            chart5.series[0].setData(data5_4);
+    		var series = chart5.series[0];
+    		series.color = '#ffff00';
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_5') {
+            chart5.series[0].setData(data5_5);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_6') {
+            chart5.series[0].setData(data5_6);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: ''
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_7') {
+            chart5.series[0].setData(data5_7);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '5_8') {
+            chart5.series[0].setData(data5_8);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_9') {
+            chart5.series[0].setData(data5_9);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_10') {
+            chart5.series[0].setData(data5_10);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_11') {
+            chart5.series[0].setData(data5_11);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_12'){
+            chart5.series[0].setData(data5_12);
+    		var series = chart5.series[0];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '13') {
+		while (chart5.series.length) {
+		chart5.series[0].remove();
+		}
+		chart5.addSeries({
+	                name: 'Jan',
+	                id: 'jan',
+	                data: data5_1,	
+			color: '#060606'
+		});
+		chart5.addSeries({
+	                name: 'Feb',
+	                id: 'feb',
+	                data: data5_2,	
+			color: '#897345'
+		});
+		chart5.addSeries({
+	                name: 'Mar',
+	                id: 'mar',
+	                data: data5_3,	
+			color: '#8D2F2F'
+		});
+		chart5.addSeries({
+	                name: 'Apr',
+	                id: 'apr',
+	                data: data5_4,	
+			color: '#C71D1D'
+		});
+		chart5.addSeries({
+	                name: 'May',
+	                id: 'may',
+	                data: data5_5,	
+			color: '#C7A81D'
+		});
+		chart5.addSeries({
+	                name: 'Jun',
+	                id: 'jun',
+	                data: data5_6,	
+			color: '#BFC71D'
+		});
+		chart5.addSeries({
+	                name: 'Jul',
+	                id: 'jul',
+	                data: data5_7,	
+			color: '#25DC1D'
+		});
+		chart5.addSeries({
+	                name: 'Aug',
+	                id: 'aug',
+	                data: data5_8,	
+			color: '#0C8052'
+		});
+		chart5.addSeries({
+	                name: 'Sep',
+	                id: 'sep',
+	                data: data5_9,	
+			color: '#1C6FC2'
+		});
+		chart5.addSeries({
+	                name: 'Oct',
+	                id: 'oct',
+	                data: data5_10,	
+			color: '#7F61AF'
+		});
+		chart5.addSeries({
+	                name: 'Nov',
+	                id: 'nov',
+	                data: data5_11,	
+			color: '#D617DF'
+		});
+		chart5.addSeries({
+	                name: 'Dec',
+	                id: 'dec',
+	                data: data5_12,	
+			color: '#D51A86'
+		});
+        }
+	});
+    });
+
+
+chart5 = new Highcharts.chart({
+        chart: {
+            renderTo: 'container5'
+        },
+  title: {
+    text: 'Yellow Dosing Pump Milliters/Per Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Milliliters'
+    }
+  },
+
+      xAxis: {
+        type: 'datetime',
+      },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'Yellow Doser',
+    data: [0,0,0,0,0,0,0,0,0,0,0],
+        color: '#ffff00'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+});
+});
+
+
+        // All Chart  6
+
+
+/*$(function() {
+
+  $.getJSON('/jsonAto', function(myobj) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+  $.getJSON('/jsonAwc', function(myobj2) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+  $.getJSON('/jsonBlue', function(myobj3) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+  $.getJSON('/jsonGreen', function(myobj4) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+ 
+  $.getJSON('/jsonYellow', function(myobj5) {
+      Highcharts.setOptions({
+          global: {
+              timezoneOffset: -1 * 60 // Timezone offset is -1 hour
+          }
+      });
+getAtoRows(myobj5);
+getAwcRows(myobj5);
+getBlueRows(myobj5);
+getGreenRows(myobj5);
+getYellowRows(myobj5);
+
+
+    // The select action
+    $("#list6").on('change', function(){
+	$.getJSON('/jsonGreen', function(myobj4){
+	getGreenRows(myobj4);
+        var selVal = $("#list6").val();
+
+        if(selVal == "6_1" || selVal == '') {
+            chart6.series[4].setData(data4_1);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "6_2") {
+            chart6.series[4].setData(data4_2);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '6_3') {
+            chart6.series[4].setData(data4_3);
+    		var series = chart6.series[4];
+    		series.color = '#008000';
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_4') {
+            chart6.series[4].setData(data4_4);
+    		var series = chart6.series[4];
+    		series.color = '#008000';
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_5') {
+            chart6.series[4].setData(data4_5);
+    		var series = chart4.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_6') {
+            chart6.series[4].setData(data4_6);
+    		var series = chart4.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_7') {
+            chart6.series[4].setData(data4_7);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '6_8') {
+            chart6.series[4].setData(data4_8);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_9') {
+            chart6.series[4].setData(data4_9);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_10') {
+            chart6.series[4].setData(data4_10);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_11') {
+            chart6.series[4].setData(data4_11);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '6_12'){
+            chart6.series[4].setData(data4_12);
+    		var series = chart6.series[4];
+    		series.color = "#008000";
+    		series.graph.attr({ 
+		        stroke: '#008000'
+	    });
+   	 chart6.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#008000'
+	        });
+	});
+    	series.redraw();
+	}
+	});
+	$.getJSON('/jsonYellow', function(myobj5){
+	getAwcRows(myobj5);
+        var selVal = $("#list6").val();
+
+        if(selVal == "6_1" || selVal == '') {
+            chart5.series[5].setData(data5_1);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == "5_2") {
+            chart5.series[5].setData(data5_2);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+
+        else if (selVal == '5_3') {
+            chart5.series[5].setData(data5_3);
+    		var series = chart5.series[5];
+    		series.color = '#ffff00';
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_4') {
+            chart5.series[5].setData(data5_4);
+    		var series = chart5.series[5];
+    		series.color = '#ffff00';
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_5') {
+            chart5.series[5].setData(data5_5);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_6') {
+            chart5.series[5].setData(data5_6);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: ''
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_7') {
+            chart5.series[5].setData(data5_7);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+         }
+        else if (selVal == '5_8') {
+            chart5.series[5].setData(data5_8);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_9') {
+            chart5.series[5].setData(data5_9);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_10') {
+            chart5.series[5].setData(data5_10);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_11') {
+            chart5.series[5].setData(data5_11);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+        else if (selVal == '5_12'){
+            chart5.series[5].setData(data5_12);
+    		var series = chart5.series[5];
+    		series.color = "#ffff00";
+    		series.graph.attr({ 
+		        stroke: '#ffff00'
+	    });
+   	 chart5.legend.colorizeItem(series, series.visible);
+	    $.each(series.data, function(i, point) {
+	        point.graphic.attr({
+		fill: '#ffff00'
+	        });
+	});
+    	series.redraw();
+        }
+	});
+    });
+
+
+chart6 = new Highcharts.chart({
+        chart: {
+            renderTo: 'container6'
+        },
+  title: {
+    text: 'ATO,AWC,  Blue,Green,Yellow Dosing Pump Gallons,Milliters/Per Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Gallons-Milliliters'
+    }
+  },
+
+      xAxis: {
+        type: 'datetime',
+      },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'All',
+    data: [0,0,0,0,0,0,0,0,0,0,0],
+        color: '#ffff00'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+});
+});
+///////////////////////////////////////////////////////////////////////////////////////////        // Build Chart A
+
+Highcharts.chart('container6', {
+
+  title: {
+    text: 'All Graphs on One (ATO,AWC,BD,GD,YD) Milliliters/Day'
+  },
+
+  subtitle: {
+    text: 'Source: Your atoawc RoodReef system'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Millileter'
+    }
+  },
+
+  xAxis: {
+    accessibility: {
+      rangeDescription: 'Range: 2010 to 2017'
+    }
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2010
+    }
+  },
+
+  series: [{
+    name: 'ATO',
+    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434],
+        color: '#0C0200'
+  }, {
+    name: 'AWC',
+    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
+        color: '#FF0000'
+  }, {
+    name: 'Blue Dosing',
+    data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387],
+        color: '#0E2FEA'
+  }, {
+    name: 'Green Dosing',
+    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227],
+        color: '#12A606'
+  }, {
+    name: 'Yellow Dosing',
+    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111],
+        color: '#E8F209'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});*/
+</script>
+</html>
